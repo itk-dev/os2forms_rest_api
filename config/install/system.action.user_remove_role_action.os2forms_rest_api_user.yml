@@ -1,0 +1,18 @@
+uuid: e015ec9c-0ed8-497e-a3fa-358810c36f33
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.os2forms_rest_api_user
+  module:
+    - user
+    - os2forms_rest_api
+  enforced:
+    module:
+      - os2forms_rest_api
+id: user_remove_role_action.os2forms_rest_api_user
+label: 'Remove the OS2Form REST API user role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: os2forms_rest_api_user
