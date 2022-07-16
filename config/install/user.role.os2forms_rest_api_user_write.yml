@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - rest.resource.webform_rest_submit
+  module:
+    - key_auth
+    - os2forms_rest_api
+    - rest
+  enforced:
+    module:
+      - os2forms_rest_api
+id: os2forms_rest_api_user_write
+label: 'OS2Form REST API (write)'
+weight: 2
+is_admin: null
+permissions:
+  - 'restful post webform_rest_submit'
