@@ -101,6 +101,7 @@ class WebformHelper {
       'rest.webform_rest_elements.GET',
       'rest.webform_rest_fields.GET',
       'rest.webform_rest_submission.GET',
+      'view.os2forms_rest_api_webform_submissions.rest_export_1',
     ];
     $requireUuid = static function ($route) {
       return in_array(

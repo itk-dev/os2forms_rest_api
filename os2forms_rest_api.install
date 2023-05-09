@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Contains install hooks related to OS2Forms REST API module.
+ */
+
+/**
+ * Add Webform submissions REST view.
+ */
+function os2forms_rest_api_update_9001(&$sandbox) {
+  $moduleName = 'os2forms_rest_api';
+  // Install all config from our module's config/install folder.
+  // @see https://gist.github.com/crittermike/2d2c6734c506d509505fa79142125757
+  \Drupal::service('config.installer')->installDefaultConfig('module', $moduleName);
+}

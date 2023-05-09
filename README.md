@@ -27,15 +27,25 @@ access, a user must also have the “OS2Form REST API user (write)”
 
 ## Endpoints
 
-| Name               | Path                                           | Methods |
-|--------------------|------------------------------------------------|---------|
-| Webform Elements   | `/webform_rest/{webform_id}/elements`          | GET     |
-| Webform Fields     | `/webform_rest/{webform_id}/fields`            | GET     |
-| Webform Submission | `/webform_rest/{webform_id}/submission/{uuid}` | GET     |
-| Webform Submit     | `/webform_rest/submit`                         | POST    |
-| File               | `/entity/file/{file_id}`                       | GET     |
+| Name                | Path                                                                    | Methods |
+|---------------------|-------------------------------------------------------------------------|---------|
+| Webform Elements    | `/webform_rest/{webform_id}/elements`                                   | GET     |
+| Webform Fields      | `/webform_rest/{webform_id}/fields`                                     | GET     |
+| Webform Submission  | `/webform_rest/{webform_id}/submission/{uuid}`                          | GET     |
+| Webform Submit      | `/webform_rest/submit`                                                  | POST    |
+| File                | `/entity/file/{file_id}`                                                | GET     |
+| Webform Submissions | `/os2forms_rest_api/webform/submissions?webform_id=some_webform_id`[^1] | GET     |
 
 ## Examples
+
+### Get all submissions for a webform
+
+```sh
+> curl --silent --header 'api-key: …' https://127.0.0.1:8000/os2forms_rest_api/webform/submissions?webform_id=some_webform_id
+```
+
+Note that the `webform_id` parameter is required for this endpoint, ie. it's
+only possible to get submissions for a single form.
 
 ### Get file content from webform submission
 
@@ -197,3 +207,7 @@ In order to add linked data, we apply a patch,
 Webform REST module and implement an event subscriber,
 [WebformSubmissionDataEventSubscriber](src/EventSubscriber/WebformSubmissionDataEventSubscriber.php),
 to add the linked data.
+
+[^1]: The Webform Submissions endpoint requires the `webform_id` parameter to be
+    specified, e.g.
+    `/os2forms_rest_api/webform/submission?webform_id=my_webform`.
