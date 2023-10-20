@@ -8,6 +8,8 @@ about writing changes to this log.
 
 ## [Unreleased]
 
+- Added endpoint for getting all submissions on a webform.
+
 ## [1.1.0]
 
 ### Added

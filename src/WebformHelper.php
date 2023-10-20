@@ -101,7 +101,9 @@ class WebformHelper {
       'rest.webform_rest_elements.GET',
       'rest.webform_rest_fields.GET',
       'rest.webform_rest_submission.GET',
+      'rest.webform_rest_all_form_submissions.GET',
     ];
+
     $requireUuid = static function ($route) {
       return in_array(
         $route,
@@ -278,7 +280,7 @@ class WebformHelper {
    *
    * Note: This is only used to deny access to a file that is attached to a
    * webform (submission) that the user does not have permission to access.
-   * Permission to access private files are handles elsewhere.
+   * Permission to access private files are handled elsewhere.
    *
    * @phpstan-return int|array<string, string>|null
    */
@@ -305,6 +307,16 @@ class WebformHelper {
     // We cannot deny access to the file. Let others handle the access control
     // for the (private) file.
     return NULL;
+  }
+
+  /**
+   * Return current user.
+   *
+   * @return \Drupal\Core\Session\AccountProxyInterface
+   *   The current user.
+   */
+  public function getCurrentUser(): AccountProxyInterface {
+    return $this->currentUser;
   }
 
 }
